@@ -8,7 +8,7 @@ COPY . ./
 
 RUN pip install -r requirements.txt
 
-EXPOSE 8080
+#EXPOSE 8080
 
 CMD pip install -r requirements.txt
 CMD python download_historical_prices.py
