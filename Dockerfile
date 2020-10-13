@@ -13,9 +13,8 @@ RUN pip install -r requirements.txt
 CMD pip install -r requirements.txt
 CMD python download_historical_prices.py
 CMD python parsing_keystats.py
-CMD python backtesting.py
 CMD python current_data.py
-CMD pytest -v
 CMD python stock_prediction.py
+CMD python app.py
 
 

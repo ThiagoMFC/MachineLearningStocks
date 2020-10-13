@@ -54,7 +54,8 @@ def backtest():
     # is equal to the sum of the array
     num_positive_predictions = sum(y_pred)
     if num_positive_predictions < 0:
-        print("No stocks predicted!")
+        #print("No stocks predicted!")
+        return f'No stocks predicted!'
 
     # Recall that z_test stores the change in stock price in column 0, and the
     # change in S&P500 price in column 1.
@@ -71,15 +72,23 @@ def backtest():
     percentage_market_returns = 100 * (index_growth - 1)
     total_outperformance = percentage_stock_returns - percentage_market_returns
 
-    print("\n Stock prediction performance report \n", "=" * 40)
-    print(f"Total Trades:", num_positive_predictions)
-    print(f"Average return for stock predictions: {percentage_stock_returns: .1f} %")
-    print(
-        f"Average market return in the same period: {percentage_market_returns: .1f}% "
-    )
-    print(
-        f"Compared to the index, our strategy earns {total_outperformance: .1f} percentage points more"
-    )
+    #print("\n Stock prediction performance report \n", "=" * 40)
+    #print(f"Total Trades:", num_positive_predictions)
+    #print(f"Average return for stock predictions: {percentage_stock_returns: .1f} %")
+    #print(
+    #    f"Average market return in the same period: {percentage_market_returns: .1f}% "
+    #)
+    #print(
+    #    f"Compared to the index, our strategy earns {total_outperformance: .1f} percentage points more"
+    #)
+
+    return f'<br/> Classifier performance <br/><br/> Accuracy score: {clf.score(X_test, y_test): .2f}<br/>' \
+           f'Precision score: {precision_score(y_test, y_pred): .2f}<br/><br/>' \
+           f'Stock prediction performance report \n\n Total Trades: {num_positive_predictions}<br/> ' \
+           f'Average return for stock predictions: {percentage_stock_returns: .1f} %<br/>' \
+           f'Average market return in the same period: {percentage_market_returns: .1f}%<br/>' \
+           f'Compared to the index, our strategy earns {total_outperformance: .1f} percentage points more<br/>'
+
 
 
 if __name__ == "__main__":
