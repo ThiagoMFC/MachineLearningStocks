@@ -6,3 +6,4 @@ pandas_datareader
 numpy
 pandas
 scikit_learn
+flask==1.1.2
